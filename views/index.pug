@@ -1,5 +1,17 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+
+  h1 Welcome to #{title}
+  div
+    
+    form(class='px-4 py-3')
+    div(class='form-group')
+      label(for='exampleDropdownFormID') ID
+      input(type='ID' class='form-control' id='exampleDropdownFormID' placeholder='ID')
+   
+    div(class='form-group')
+      label(for='exampleDropdownFormEmp_num') Employee number
+      input(type='EMP_NUM' class='form-control' id='exampleDropdownFormEmp_num' placeholder='EMP_NUM')
+  
+    button(type='submit' class='btn btn-primary') Sign in
