@@ -1,0 +1,29 @@
+extends layout
+block content
+  div(class="ui container")
+    div(style="margin-top:30px;")
+      h1 Project Detail 📄
+    div(class="ui divider")
+    h2 프로젝트 정보
+    div(class="ui divider")
+    div(class="ui segment")
+      h3='이름 :'+info.PRJCT_NM
+      h4='번호 : '+info.PRJCT_NUM
+      h4='고객사 : '+info.COMPANY_NM
+      h4='착수일자 : '+info.OUTSET_DE.toISOString().substring(0, 10)
+      h4='종료일자 : '+info.ENDDE.toISOString().substring(0, 10)
+
+    h2 참가자
+    div(class="ui divider")
+    div(class="contents")
+      div(class="ui cards")
+        each developer in developers
+          div(class="card")
+            div(class="content")
+              div(class="header")=developer.EMP_NM
+              div(class="meta")=developer.EMP_NUM
+              div(class="description")
+                p='직무 : '+developer.DTY
+                p='스킬 : '+developer.SKLST
+                p='참여일자 : '+developer.PARTCPTN_BGNDE.toISOString().substring(0, 10)
+                p='참여 종료일자 : '+developer.PARTCPTN_ENDDE.toISOString().substring(0, 10)

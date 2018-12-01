@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  div(class="ui container")
+    div(style="margin-top:30px;")
+      h1 Project list 📚
+    div(class="ui divider")
+    h3 ON PROGRESS 🏃‍
+    div(class="ui divider")
+    each project in on_progress
+      div(class="ui card" style="display:inline-block; margin:10px;")
+        div(class="content")
+          div(class="header")=project.PRJCT_NM
+        div(class="content")
+          h4(class="ui sub header") Summary
+          div(class="ui small feed")
+            p= 'Project Number : '+project.PRJCT_NUM
+            p= 'Start Date : '+project.OUTSET_DE.toISOString().substring(0, 10)
+            p= 'End Date : '+project.ENDDE.toISOString().substring(0, 10)
+            p= 'Client : '+project.COMPANY_NM
+            
+        div(class="extra content")
+          a(class="ui button" href="/projects/"+project.PRJCT_NUM) Show Detail
+    
+      h3 Finished 🏁
+      div(class="ui divider")
+
+      each f_project in finished
+        div(class="ui card" style="display:inline-block; margin:10px;")
+          div(class="content")
+            div(class="header")=f_project.PRJCT_NM
+          div(class="content")
+            h4(class="ui sub header") Summary
+            div(class="ui small feed")
+              p= 'Project Number : '+f_project.PRJCT_NUM
+              p= 'Start Date : '+f_project.OUTSET_DE.toISOString().substring(0, 10)
+              p= 'End Date : '+f_project.ENDDE.toISOString().substring(0, 10)
+              p= 'Client : '+f_project.COMPANY_NM
+              
+          div(class="extra content")
+            a(class="ui button" href="/projects/"+f_project.PRJCT_NUM) Show Detail
